@@ -1,10 +1,13 @@
 # civtakdev
+
 This repo is dedicated to getting a dev CivTak server online.
 
 ## Reference
 
+* [TAK Product Center (TPC)](https://tak.gov)
 * [Let's Build a TAK Server](https://mytecknet.com/lets-build-a-tak-server/)
 * [The TAK Ecosystem: Military Coordination Goes Open Source](https://hackaday.com/2022/09/08/the-tak-ecosystem-military-coordination-goes-open-source/)
+* [FreeTAKTeam OpenTAKPickList](https://github.com/FreeTAKTeam/openTAKpickList)
 
 ## Overview
 
