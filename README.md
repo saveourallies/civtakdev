@@ -10,6 +10,7 @@ This repo is dedicated to getting a dev CivTak server online.
 * [FreeTAKTeam OpenTAKPickList](https://github.com/FreeTAKTeam/openTAKpickList)
 * [Wikipedia: Android Team Awareness Kit (ATAK)](https://en.wikipedia.org/wiki/Android_Team_Awareness_Kit)
 * [FreeTAKServer User Docs](https://freetakteam.github.io/FreeTAKServer-User-Docs/)
+* [FreTAKServer Container Repo](https://github.com/orgs/FreeTAKTeam/packages)
 
 ## Overview
 
