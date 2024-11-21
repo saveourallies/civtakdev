@@ -5,7 +5,7 @@ This repo is dedicated to getting a dev CivTak server online.
 ## Reference
 
 * [TAK Product Center (TPC)](https://tak.gov)
-* [*TAK Server*](https://tak.gov/products/tak-server) - *v5.2 as of Nov 21 2024*
+** [*TAK Server*](https://tak.gov/products/tak-server) - *v5.2 as of Nov 21 2024*
 * [Let's Build a TAK Server](https://mytecknet.com/lets-build-a-tak-server/)
 * [The TAK Ecosystem: Military Coordination Goes Open Source](https://hackaday.com/2022/09/08/the-tak-ecosystem-military-coordination-goes-open-source/)
 * [FreeTAKTeam OpenTAKPickList](https://github.com/FreeTAKTeam/openTAKpickList)
