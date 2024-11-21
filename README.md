@@ -29,6 +29,14 @@ The CivTAK Server, part of the Team Awareness Kit (TAK) ecosystem, offers severa
 
 In summary, the CivTAK Server enhances team collaboration by providing secure, scalable, and interoperable data management, all within an open-source framework that promotes community-driven development.
 
+## What is TAK Server
+
+> ## TAK Server
+> 
+> TAK Server is a tactical information management platform that provides data access and encryption across disparate networks. TAK Server secures, brokers, and stores data in standalone and federated configurations. It is required whenever TAK clients are not operating in a peer-to-peer network or there is an operational need to encrypt and store mission data. Client plugins, such as DataSync and Execution Checklist, also require TAK Server.
+
+
+
 ## TAK Server Selection
 
 Two servers:

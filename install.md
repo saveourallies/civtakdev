@@ -1,4 +1,4 @@
-# Install  Me
+# Install  TAK Server
 
 Get the TAK server docker image to your linux host. We are using a VM at Azure.
 
