@@ -1,12 +1,12 @@
 variable "component" {
   type        = string
   description = "System Component Name - Name the Terraform Group"
-  default     = "tfstore"
+  # default     = "tfstore"
 }
 variable "owner" {
   type        = string
   description = "Owner Name"
-  default = "DevOps"
+  # default = "DevOps"
 }
 variable "location" {
   type       = string
@@ -16,7 +16,6 @@ variable "location" {
 variable "infra_name" {
   type        = string
   description = "Name the Net"
-  default    = "net1"
 }
 variable "env_name" {
   type        = string

@@ -5,16 +5,13 @@ variable "component" {
 variable "owner" {
   type        = string
   description = "Owner Name"
-  default = "DevOps"
 }
 variable "location" {
   type       = string
   description = "Azure Region"
-  # default     = "eastus"
 }
 variable "infra_name" {
   type        = string
-  description = "Name the Net"
 }
 variable "env_name" {
   type        = string
@@ -22,8 +19,5 @@ variable "env_name" {
 }
 variable "cidr_block" { 
   type        = string
-  description = "CIDR Block Definition e.g. 10.250.128.0/17"
+  description = "CIDR Block Definition"
 }
-# variable "timezone" {
-#   # default = "America/Chicago"
-# }

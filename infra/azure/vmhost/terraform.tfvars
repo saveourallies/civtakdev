@@ -1,10 +1,13 @@
-vm_user = "devadmin"
-# vm_size = "Standard_B2s"
-# ssh_src1 = "a.b.c.1"
-ssh_src1name = "admin1-office"
-# pubkey1_file = "ssh_id-devops-ed25519.pub"
+owner = "SaveOurAllies"
+
+vm_user = "takadmin"
+ssh_src1name = "admin1-remoteIP"
 
 # VM Image
-# image_publisher = "Canonical"
-# image_offer = "0001-com-ubuntu-server-jammy"
-# image_sku = "22_04-lts-gen2"
+image_publisher = "Canonical"
+image_offer = "ubuntu-24_04-lts"
+image_sku = "server"
+
+# https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/basv2-series
+# 4 vCPU, 8 GB RAM
+vm_size = "Standard_B4als_v2"

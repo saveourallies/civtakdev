@@ -5,7 +5,6 @@ variable "component" {
 variable "owner" {
   type        = string
   description = "Owner Name"
-  default = "DevOps"
 }
 variable "location" {
   type = string
@@ -30,23 +29,18 @@ variable "vm_user" {
 variable "vm_size" {
   type = string
   description = "Size of Azure VM"
-  default = "Standard_B2s"
-  # https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-b-series-burstable
 }
 variable "image_publisher" {
   type = string
   description = "Publisher Name on Azure"
-  default = "Canonical"
 }
 variable "image_offer" {
   type = string
   description = "Offer Name on Azure"
-  default = "0001-com-ubuntu-server-jammy"
 }
 variable "image_sku" {
   type = string
   description = "SKU Name on Azure"
-  default = "22_04-lts-gen2"
 }
 variable "ssh_src1" {
   type = string
@@ -60,15 +54,3 @@ variable "ssh_src1name" {
   type = string
   description = "ssh source name 1"
 }
-# variable "pubkey1_file" {
-#   type = string
-#   description = "public ssh key 1 for devops remote access"
-# }
-# variable "pubkey2_file" {
-#   type = string
-#   description = "public ssh key 2 for devops remote access"
-# }
-# variable "admin_pass" {
-#   type = string
-#   description = "linux default user password"
-# }
