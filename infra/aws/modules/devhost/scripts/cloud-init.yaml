@@ -1,0 +1,53 @@
+#cloud-config
+
+hostname: ${hostname}
+
+# Add groups
+groups:
+  - devops: [${username}]
+  - docker: [${username}]
+
+# Setup Users
+users:
+  - default
+  - name: ${username}
+    shell: /bin/bash  
+    groups: docker, devops
+    ssh_authorized_keys:
+      - ${pubkey1}
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+
+apt:
+  sources:
+    docker.list:
+      source: deb [arch=amd64] https://download.docker.com/linux/ubuntu $RELEASE stable
+      keyid: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+
+# update all packages and reboot
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
+
+# Install packages
+packages:
+  - python3.10
+  - python3.10-venv
+  - python3-pip
+  - docker-ce
+  - net-tools
+
+runcmd:
+  - [ sh, -xc, "echo $(date) ': Begin Cloud-Init RUNCMD'" ]
+  - [ sh, -xc, "echo pubkey \n${pubkey1}\n"]
+  - [ install, -d, -m, '770', -o, ${username}, -g, docker, /opt/docker ]
+  - [ runuser, -l, ${username}, -c, 'ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519' ]
+  - [ sh, -xc, "echo $(date) ': End Cloud-Init RUNCMD'" ]
+
+final_message: ">>  Fini...The system is ready!"
+
+power_state:
+    delay: now
+    mode: reboot
+    message: Rebooting...
+    timeout: 2

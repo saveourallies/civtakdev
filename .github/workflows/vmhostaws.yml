@@ -1,0 +1,74 @@
+name: AWS VM Host - Terraform
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to Deploy'
+        type: environment
+        required: true
+      component:
+        description: 'Component to Deploy'
+        type: choice
+        options:
+          - 'tfstore'
+          - 'network'
+          - 'vmhost'
+      action:
+        description: 'Terraform Action to Perform'
+        type: choice
+        options:
+          - 'plan'
+          - 'apply'
+          - 'destroy'
+
+run-name: ${{ github.event.inputs.environment }} - Terraform ${{ github.event.inputs.component }} ${{ github.event.inputs.action }}
+
+jobs:
+
+  terraform-infra:
+
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    env:
+      ENV_NAME: ${{ github.event.inputs.environment }}
+      COMPONENT: ${{ github.event.inputs.component }}
+      TERRAFORM_ACTION: ${{ github.event.inputs.action }}
+      AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      CIDR_BLOCK: ${{ vars.CIDR_BLOCK }}
+      INFRA_NAME: ${{ vars.INFRA_NAME }}
+      OPS_IP1: ${{ vars.OPS_IP1 }}
+      PUBKEY1: ${{ vars.PUBKEY1 }}
+      STATE_SUFFIX: ${{ vars.STATE_SUFFIX }}
+      VM_NAME: ${{ vars.VM_NAME }}
+      VM_SIZE: ${{ vars.VM_SIZE }}
+
+    steps:
+
+      - name: Check Environment
+        run: |
+          echo "ENV_NAME: ${ENV_NAME}"
+          echo "TERRAFORM_ACTION: ${TERRAFORM_ACTION}"
+          echo "COMPONENT: $COMPONENT"
+          echo "AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}"
+          echo "AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}"
+          echo "AWS_REGION: ${AWS_REGION}"
+          echo "CIDR_BLOCK: ${CIDR_BLOCK}"
+          echo "INFRA_NAME: ${INFRA_NAME}"
+          echo "OPS_IP1: ${OPS_IP1}"
+          echo "PUBKEY1: ${PUBKEY1}"
+          echo "STATE_SUFFIX: ${STATE_SUFFIX}"
+          echo "VM Name/Size: ${VM_NAME}/${VM_SIZE}"
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Terraform Action
+        env:
+          ARM_SKIP_PROVIDER_REGISTRATION: true
+        run: |
+          cd infra/aws
+          echo "ENV_NAME: ${ENV_NAME}"
+          ./terraform_runner.sh aws $COMPONENT $TERRAFORM_ACTION

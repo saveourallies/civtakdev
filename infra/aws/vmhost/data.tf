@@ -1,0 +1,61 @@
+data "aws_vpc" "net" {
+  filter {
+    name   = "tag:Name"
+    values = ["${local.infra_env}-vpc"]
+  }
+}
+
+data "aws_subnets" "public" {
+  # depends_on = [data.aws_vpc.net]
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.net.id]
+  }
+  filter {
+    name   = "tag:Name"
+    values = ["${local.infra_env}-pub*"]
+  }
+}
+
+data "aws_subnets" "private" {
+  # depends_on = [data.aws_vpc.net]
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.net.id]
+  }
+  filter {
+    name   = "tag:Name"
+    values = ["${local.infra_env}-priv*"]
+  }
+}
+
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-*22.04*-amd64-server-*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+  owners = ["099720109477"] # Canonical
+}
+
+# Get latest Amazon Linux 2023 AMI
+data "aws_ami" "amazon-linux-2023" {
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["al2023-ami-minimal*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+}

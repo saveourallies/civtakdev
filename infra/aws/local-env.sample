@@ -1,0 +1,19 @@
+export ENV_NAME="SAND0"
+export SAND0_AWS_ACCESS_KEY_ID="AKIAYOURKEYIDIQ"
+export SAND0_AWS_SECRET_ACCESS_KEY="hYOURSECRETKEYJqNECs+"
+export SAND0_AWS_REGION="us-east-2"
+
+export SAND0_STATE_SUFFIX="tf"
+
+#Pick an IP (CIDR) block
+export SAND0_CIDR_BLOCK=10.201.0.0/20
+
+export IMAGE_TAG=latest
+# aws sts get-caller-identity --region ${AWS_REGION}
+
+# AWS Instance Size
+export VM_SIZE=t3.medium
+
+# first connector
+export OPS_IP1=76.32.81.100
+export PUBKEY1='ssh-ed25519 AAAAC3XXXYYYZZZZM4RXlBL dummy@example.local'
