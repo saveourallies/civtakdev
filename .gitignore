@@ -1,3 +1,7 @@
 scratch
 tak/dist
+tak/takserver-*.zip
 tak/server
+db
+*.env
+
