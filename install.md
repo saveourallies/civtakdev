@@ -93,11 +93,8 @@ docker run -d \
     --rm takserver:"$(cat tak/version.txt)"
 ```
 
-### Certs Time
 
-```sh
-docker exec -it takserver bash -c "cd /opt/tak/certs && ./makeRootCa.sh"
-```
+### Check Docker Container Shell
 
 more fun to just do this in a shell instead of docker exec everytime
 ```sh
@@ -109,7 +106,16 @@ Ubuntu 22.04.5 LTS \n \l
 
 root@c12d42ba05d6:/# pwd
 /
-root@c12d42ba05d6:/# cd opt/tak/certs
+```
+
+
+## Certs Time
+
+```sh
+docker exec -it takserver bash -c "cd /opt/tak/certs && ./makeRootCa.sh"
+```
+
+```
 root@c12d42ba05d6:/opt/tak/certs# ./makeRootCa.sh
 Please set the following variables before running this script: STATE, CITY, ORGANIZATIONAL_UNIT. \n
   The following environment variables can also be set to further secure and customize your certificates: ORGANIZATION, ORGANIZATIONAL_UNIT, CAPASS, and PASS.
@@ -117,23 +123,33 @@ Please set the following variables before running this script: STATE, CITY, ORGA
 
 > **Note:** I used a combination of editing the `cert-metadata.sh` (for the `CAPASS`), and passing some environment variables from the host.
 
-Then run these:
+Should set the CAPASS and Client Cert Pass.
+
+### Make CA Root
+
+Make your root CA.
 
 > `./makeRootCa.sh`
 
-Then server cert
+### Create a Server Cert
 
-> `./makeCert.sh server takserver`
+Make server cert
+
+> `./makeCert.sh server takserver.example.com`
+
+Should match DNS.
+
+Need to update the name in Config.
+
+### Create Client Certs
 
 Make client certs
 
 > `./makeCert.sh client kdtz`
 
-Run ConfigureInDocker
+Distribute the .p12
 
-> `./configureInDocker.sh`
-
-Hopefully that is it for certs.
+Move the client files out of the files folder ASAP. Treat as secured entities.
 
 ## Watch TAK server logs
 
