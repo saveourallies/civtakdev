@@ -180,3 +180,16 @@ Shows up like this at bottom of the `/etc/security/limits.conf` file.
 *    soft    nofile 32768
 *    hard    nofile 32768
 ```
+## Make user Admin
+
+```
+root@09bcc02e9df5:/opt/tak# java -jar utils/UserManager.jar certmod -A certs/files/kdtz.pem
+New User Added:
+        Username:      'kdtz'
+        Role:          ROLE_ADMIN
+        Fingerprint:   89:2C:B9:08:6A:D7:B6:2F:66:65:6D:56:CC:EA:C8:18:E3:41:E7:24:A4:A5:AF:D3:9D:9E:3E:6F:1E:BB:58:26
+        Groups (read and write permission):        
+                __ANON__
+
+root@09bcc02e9df5:/opt/tak#
+```
