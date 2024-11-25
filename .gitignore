@@ -9,6 +9,6 @@ db
 takserver/tak-server
 takserver/shared
 takserver_orig
-
-
-
+takserver-docker-*.zip
+Configurator_Linux*
+tak_server*.zip
