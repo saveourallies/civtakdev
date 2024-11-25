@@ -1,0 +1,53 @@
+# version 3.7
+
+services:
+
+  takserver-db:
+    build:
+      dockerfile: Dockerfile-takserver-db
+    container_name: tak-database
+    hostname: tak-database
+    init: true
+    # env_file:
+    #   - .env
+    networks:
+      - net
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - tak_db:/var/lib/postgresql/data:z
+
+  takserver-core:
+    build:
+      dockerfile: Dockerfile-takserver
+    container_name: takserver
+    hostname: takserver
+    init: true
+    env_file:
+      - .env
+    networks:
+      - net
+    ports:
+      - 8443:8443
+      - 8446:8446
+      - 8089:8089
+      - 8444:8444
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./tak-server/tak:/opt/tak:z
+      - ./shared:/opt/tak/certs/shared:z
+      - ./plugins:/opt/tak/webcontent/webtak-plugins/plugins
+
+networks:
+  net:
+    name: 'takserver'
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.16.0/24
+
+volumes:
+  tak_db:

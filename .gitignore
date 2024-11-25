@@ -1,7 +1,14 @@
 scratch
-tak/dist
-tak/takserver-*.zip
-tak/server
+tak0/dist
+tak0/takserver-*.zip
+TAK_Server_Configurator
+tak0/server
+tak0/server0
 db
 *.env
+takserver/tak-server
+takserver/shared
+takserver_orig
+
+
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://bbn.com/marti/xml/config"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="CoreConfig.xsd">
+  <network multicastTTL="5">
+    <input _name="stdssl" protocol="tls" port="8089" auth="x509"/>
+    <connector port="8443" _name="https"/>
+    <connector port="8444" useFederationTruststore="true" _name="fed_https"/>
+    <connector port="8446" clientAuth="false" _name="Cert_Enrollment" keystore="JKS" keystoreFile="certs/files/takserver.jks" keystorePass="atakatak"/>
+  </network>
+  <auth>
+    <File location="UserAuthenticationFile.xml"/>
+  </auth>
+  <submission ignoreStaleMessages="false" validateXml="false"/>
+
+  <subscription reloadPersistent="false">
+  </subscription>
+
+  <repository enable="true" numDbConnections="16" primaryKeyBatchSize="500" insertionBatchSize="500">
+    <connection url="jdbc:postgresql://tak-database:5432/cot" username="martiuser" password="atakatak" />
+  </repository>
+
+  <repeater enable="true" periodMillis="3000" staleDelayMillis="15000">
+    <repeatableType initiate-test="/event/detail/emergency[@type='911 Alert']" cancel-test="/event/detail/emergency[@cancel='true']" _name="911"/>
+    <repeatableType initiate-test="/event/detail/emergency[@type='Ring The Bell']" cancel-test="/event/detail/emergency[@cancel='true']" _name="RingTheBell"/>
+    <repeatableType initiate-test="/event/detail/emergency[@type='Geo-fence Breached']" cancel-test="/event/detail/emergency[@cancel='true']" _name="GeoFenceBreach"/>
+    <repeatableType initiate-test="/event/detail/emergency[@type='Troops In Contact']" cancel-test="/event/detail/emergency[@cancel='true']" _name="TroopsInContact"/>
+  </repeater>
+
+  <dissemination smartRetry="false" />
+
+  <filter>
+    <flowtag enable="false" text=""/>
+    <streamingbroker enable="true"/>
+    <scrubber enable="false" action="overwrite"/>
+  </filter>
+
+  <buffer>
+    <latestSA enable="true"/>
+    <queue/>
+  </buffer>
+  <certificateSigning CA="TAKServer">
+    <certificateConfig>
+      <nameEntries>
+        <nameEntry name="O" value="Default Org Name"/>
+        <nameEntry name="OU" value="Default Org Unit Name"/>
+      </nameEntries>
+    </certificateConfig>
+    <TAKServerCAConfig keystore="JKS" keystoreFile="certs/files/intermediate-signing.jks" keystorePass="atakatak" validityDays="30" signatureAlg="SHA256WithRSA" CAcertificate="/opt/tak/certs/files/intermediate"/>
+  </certificateSigning>
+  <security>
+    <tls keystore="JKS" keystoreFile="certs/files/takserver.jks" keystorePass="atakatak" truststore="JKS" truststoreFile="certs/files/truststore-intermediate.jks" truststorePass="atakatak" context="TLSv1.2" keymanager="SunX509">
+      <crl _name="TAKServer CA" crlFile="certs/files/intermediate.crl"/>
+    </tls>
+  </security>
+</Configuration>

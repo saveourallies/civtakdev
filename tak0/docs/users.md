@@ -30,3 +30,8 @@ Use KeyChain Access app on Mac. Looks like Apple is replacing it with "Passwords
 https://DNSNAME:8443
 
 Select the Client Certificate when prompted.
+
+## Cert Hell
+
+`keytool -list -v -keystore kdtz.p12 -storepass atakatak -storetype PKCS12`
+

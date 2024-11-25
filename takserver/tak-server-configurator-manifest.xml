@@ -1,0 +1,11 @@
+<MissionPackageManifest version="2">
+    <Configuration>
+        <Parameter name="name" value="ATAK.zip"/>
+        <Parameter name="onReceiveDelete" value="true"/>
+    </Configuration>
+    <Contents>
+        <Content ignore="false" zipEntry="certs/tak-server-configurator.pref"/>
+        <Content ignore="false" zipEntry="certs/truststore-root.p12"/>
+        <Content ignore="false" zipEntry="certs/{cert_path}"/>
+    </Contents>
+</MissionPackageManifest>
