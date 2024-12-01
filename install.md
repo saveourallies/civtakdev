@@ -206,3 +206,12 @@ New User Added:
 Refer to the TAK security best practices.
 
 [TAK Security Best Practices](https://mytecknet.com/tak-security-best-practices/)
+
+Check your certs
+>```
+>openssl s_client -connect civtakdev.opeongo.net:8089
+>```
+
+## Mission Packages
+
+* [Mission Package Rules](https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV/blob/main/commoncommo/core/missionpackage-rules.txt)
