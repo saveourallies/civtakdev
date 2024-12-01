@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="665F71EE-C32F-4DCD-9594-0C36266D3EA3" type="a-u-G" how="h-g-i-g-o" time="2024-12-01T19:08:43.0Z" start="2024-12-01T19:08:43.0Z" stale="2024-12-01T19:10:43.0Z">
+	<point ce="0.0" le="0.0" hae="0.0" lat="30.57295042941561" lon="-98.27814119099934"/>
+	<detail>
+		<contact callsign="brasshall"/>
+		<precisionlocation geopointsrc="???" altsrc="???"/>
+		<status readiness="true"/>
+		<archive/>
+		<link uid="549256F8-F87D-423F-B0B1-6AAD68F624F3" production_time="2024-12-01T19:08:43Z" type="a-f-G-U-C" parent_callsign="KDTZ-Mobile" relation="p-p"/>
+		<usericon iconsetpath="COT_MAPPING_2525B/a-u/a-u-G"/>
+		<color argb="-1"/>
+		<remarks/>
+		<marti>
+			<dest uid="ANDROID-76fc34df88b3870e"/>
+		</marti>
+		<_flow-tags_ TAK-Server-90d7840b64e147d093d56b40b65ddad7="2024-12-01T19:08:43Z"/>
+	</detail>
+</event>
+
+---
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="99f657bf-faf9-4506-b68d-f68ee1abcaf0" type="a-u-G" how="h-g-i-g-o" time="2024-12-01T19:27:33.0Z" start="2024-12-01T19:27:33.0Z" stale="2025-12-01T19:27:33.0Z" access="Undefined">
+	<point ce="9999999.0" le="9999999.0" hae="693.452" lat="29.5168315" lon="32.1925993"/>
+	<detail>
+		<contact callsign="U.1.132716"/>
+		<status readiness="true"/>
+		<archive/>
+		<usericon iconsetpath="COT_MAPPING_2525C/a-u/a-u-G"/>
+		<link uid="ANDROID-76fc34df88b3870e" production_time="2024-12-01T19:27:16.962Z" type="a-f-G-U-C" parent_callsign="BlueSammy" relation="p-p"/>
+		<archive/>
+		<precisionlocation altsrc="ETOPO2022"/>
+		<remarks/>
+		<color argb="-1"/>
+		<_flow-tags_ TAK-Server-90d7840b64e147d093d56b40b65ddad7="2024-12-01T19:27:33Z"/>
+	</detail>
+</event>
+
+
+----
+
+
+	33.37951	-117.19750
+
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="al262" type="a-u-G" how="m-g" time="2024-12-01T19:34:48.0Z" start="2024-12-01T19:34:48.434Z" stale="2024-12-01T19:35:48.434Z">
+	<point ce="9999999.0" le="9999999.0" hae="250.0" lat="33.37951" lon="-117.19751"/>
+	<detail>
+		<status readiness="true"/>
+		<precisionlocation altsrc="DTED0"/>
+		<contact callsign="ar4"/>
+		<color argb="-256"/>
+		<usericon iconsetpath="ad78aafb-83a6-4c07-b2b9-a897a8b6a38f/Pointers/track-none.png"/>
+		<_flow-tags_ TAK-Server-90d7840b64e147d093d56b40b65ddad7="2024-12-01T19:34:48Z"/>
+	</detail>
+</event>
+
+---
