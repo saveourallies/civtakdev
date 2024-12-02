@@ -1,0 +1,79 @@
+{
+    "version": "3",
+    "type": "Mission",
+    "data": [
+        {
+            "name": "TLPOA3-FrisbeeGolfCourse",
+            "description": "Quick 3 done three times two",
+            "chatRoom": "",
+            "baseLayer": "",
+            "bbox": "",
+            "path": "",
+            "classification": "",
+            "tool": "public",
+            "keywords": [],
+            "creatorUid": "549256F8-F87D-423F-B0B1-6AAD68F624F3",
+            "createTime": "2024-11-26T23:26:05.393Z",
+            "groups": [
+                "FrisbeeOne",
+                "__ANON__"
+            ],
+            "externalData": [],
+            "feeds": [],
+            "mapLayers": [],
+            "inviteOnly": false,
+            "expiration": -1,
+            "guid": "712439b0-da70-473e-8e6e-ea22832be5c3",
+            "uids": [
+                {
+                    "data": "78ce7e9a-7d88-4ee7-8f59-b0f3dcb7f232",
+                    "timestamp": "2024-11-26T23:27:15.520Z",
+                    "creatorUid": "",
+                    "details": {
+                        "type": "a-f-G",
+                        "callsign": "hole1a",
+                        "iconsetPath": "COT_MAPPING_2525C/a-f/a-f-G",
+                        "color": "-1",
+                        "location": {
+                            "lat": 30.4199,
+                            "lon": -97.9171
+                        }
+                    }
+                },
+                {
+                    "data": "638e1322-9727-4a39-a627-b9b1c6486152",
+                    "timestamp": "2024-11-26T23:27:15.520Z",
+                    "creatorUid": "",
+                    "details": {
+                        "type": "a-f-G",
+                        "callsign": "Hole2b",
+                        "iconsetPath": "COT_MAPPING_2525C/a-f/a-f-G",
+                        "color": "-1",
+                        "location": {
+                            "lat": 30.418979372113963,
+                            "lon": -97.9168708365366
+                        }
+                    }
+                },
+                {
+                    "data": "4f274737-63ea-48d6-9c1b-86f6219a0bed",
+                    "timestamp": "2024-11-26T23:27:15.520Z",
+                    "creatorUid": "",
+                    "details": {
+                        "type": "a-f-G",
+                        "callsign": "Hole3",
+                        "iconsetPath": "COT_MAPPING_2525C/a-f/a-f-G",
+                        "color": "-23296",
+                        "location": {
+                            "lat": 30.418514918236436,
+                            "lon": -97.91804971872698
+                        }
+                    }
+                }
+            ],
+            "contents": [],
+            "passwordProtected": false
+        }
+    ],
+    "nodeId": "90d7840b64e147d093d56b40b65ddad7"
+}

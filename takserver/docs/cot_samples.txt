@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="E7893414-672A-47C6-A977-2880002235EA" type="a-f-G-E-V-C" how="m-g" time="2024-12-02T15:01:26.0Z" start="2024-12-02T15:01:26.0Z" stale="2024-12-02T15:03:26.0Z">
+	<point ce="9999999.0" le="9999999.0" hae="280.297477660701" lat="30.544224395078043" lon="-97.81032667337469"/>
+	<detail>
+		<contact callsign="Kipley" phone="5124312963" endpoint="*:-1:stcp"/>
+		<__group name="Teal" role="HQ"/>
+		<precisionlocation geopointsrc="GPS" altsrc="???"/>
+		<status battery="90"/>
+		<takv device="iPhone" platform="iTAK" os="18.1.1" version="2.9.5.634"/>
+		<track speed="0.0" course="40.4875373840332"/>
+		<uid Droid="Kipley"/>
+		<voice iceDisplayName="" takCallsign="Kipley" isSpeaking="false"/>
+		<_flow-tags_ TAK-Server-90d7840b64e147d093d56b40b65ddad7="2024-12-02T15:01:26Z"/>
+	</detail>
+</event>
+
+----
+
+<?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="AidLocation.13" type="a-u-G" how="h-g-i-g-o" time="2024-12-01T20:40:16.0Z" start="2024-12-01T20:40:16.816Z" stale="2024-12-01T21:40:16.816Z" access="Undefined">
+	<point ce="9999999.0" le="9999999.0" hae="250.0" lat="21.1411" lon="-86.84587"/>
+	<detail>
+		<contact callsign="AidRequest.13"/>
+		<status readiness="true"/>
+		<archive/>
+		<precisionlocation altsrc="DTED0"/>
+		<remarks/>
+		<color argb="-1"/>
+		<usericon iconsetpath="COT_MAPPING_2525B/a-u/a-u-G"/>
+		<_flow-tags_ TAK-Server-90d7840b64e147d093d56b40b65ddad7="2024-12-01T20:40:16Z"/>
+	</detail>
+</event>
