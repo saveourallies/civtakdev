@@ -1,0 +1,11 @@
+<MissionPackageManifest version=\"2\">
+    <Configuration>
+        <Parameter name=\"name\" value=\"${SERVER_NAME}-connect-${username}\" />
+        <Parameter name=\"uid\" value=\"7ecd17f5-e941-4d42-a757-3e7fbffbcdbb\" />
+    </Configuration>
+    <Contents>
+        <Content ignore=\"false\" zipEntry=\"certs/config.pref\" ignore=\"false\" />
+        <Content ignore=\"false\" zipEntry=\"certs/truststore-${INTERMEDIATE}.p12\" ignore=\"false\" />
+        <Content ignore=\"false\" zipEntry=\"certs/${SERVER_NAME}-user-${username}.p12\" ignore=\"false\" />
+    </Contents>
+</MissionPackageManifest>

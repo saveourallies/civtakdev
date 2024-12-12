@@ -1,13 +1,19 @@
 FROM eclipse-temurin:17-jammy
-RUN apt update && \
-    apt-get install emacs-nox net-tools netcat vim less -y
+RUN apt update \
+    && DEBIAN_FRONTEND=noninteractive \
+       apt-get -y --quiet --no-install-recommends install \
+                net-tools netcat vim less -y \
+    && apt-get -y autoremove \
+    && apt-get clean autoclean \
+    && rm -fr /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*
+
 ENV COUNTRY_CODE='US'
 ENV CITY='Austin'
 ENV STATE='Texas'
 ENV ORGANIZATION='Austin Voice Data LLC'
 ENV ORGANIZATIONAL_UNIT='DevTest'
-ENV USER_COUNT=
-ENV ADMINS_COUNT=
+# ENV USER_COUNT=
+# ENV ADMINS_COUNT=
 # ENV ENROLLMENT_TYPE=automated_enrollment
 # ENV AUTOMATED_ADMIN_USERNAME=kris-admin
 # ENV AUTOMATED_ADMIN_PASSWORD='Q$MHeip!3yFNg8C'
@@ -19,19 +25,19 @@ ENV ADMINS_COUNT=
 RUN useradd -g 0 -u 1000 tak \
     && usermod -a -G root tak \
     && mkdir -p /opt/configurator \
+    && chown tak:0 /opt/configurator
 
 RUN mkdir -p /opt/tak \
-    && chown tak:0 /opt/tak
+    && chown tak:0 /opt/tak \
+    && chmod u=rwx /opt/tak
 
-# COPY --chown=tak:0 /tak-server/tak/ /opt/tak
 COPY --chown=tak:0 configurator.sh /opt/configurator
 COPY --chown=tak:0 CoreConfig.xml /opt/configurator
-COPY --chown=tak:0 tak-server-configurator-template.pref /opt/configurator
-COPY --chown=tak:0 tak-server-configurator-manifest.xml /opt/configurator
 
-# RUN chmod u=rwx /opt/tak \
-# 	# && find /opt/tak -type f -name "*.sh" -exec chmod u=rwx {} \; \
-# 	&& find /opt/configurator -type f -name "*.sh" -exec chmod u=rwx {} \;
+COPY --chown=tak:0 missions/config-newuser.sh /opt/configurator
+COPY --chown=tak:0 missions/template-config.pref /opt/configurator
+COPY --chown=tak:0 missions/template-manifest.xml /opt/configurator
+
 RUN find /opt/configurator -type f -name "*.sh" -exec chmod u=rwx {} \;
 
 USER tak:0
