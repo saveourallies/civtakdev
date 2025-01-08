@@ -14,7 +14,6 @@ function main(){
 
   echo "3. Setup Server Connect Package.."
   setup_server_connect $username
-
 }
 
 function create_user_certificate(){
@@ -26,13 +25,14 @@ function create_takserver_user(){
 }
 
 function setup_server_connect(){
-  mkdir /opt/tak/certs/files/${SERVER_NAME}-connect-"$1"
-  mkdir /opt/tak/certs/files/${SERVER_NAME}-connect-"$1"/certs
-  mkdir /opt/tak/certs/files/${SERVER_NAME}-connect-"$1"/MANIFEST
-  cp /opt/tak/certs/files/${SERVER_NAME}-user-"$1".p12 /opt/tak/certs/files/${SERVER_NAME}-connect-"$1"/certs
-  cp /opt/tak/certs/files/truststore-${INTERMEDIATE}.p12 /opt/tak/certs/files/${SERVER_NAME}-connect-"$1"/certs
+  mkdir /opt/tak/certs/files/${SERVER_NAME}-"$1"-atak
+  mkdir /opt/tak/certs/files/${SERVER_NAME}-"$1"-atak/certs
+  mkdir /opt/tak/certs/files/${SERVER_NAME}-"$1"-atak/MANIFEST
+  cp /opt/tak/certs/files/${SERVER_NAME}-user-"$1".p12 /opt/tak/certs/files/${SERVER_NAME}-"$1"-atak/certs
+  cp /opt/tak/certs/files/truststore-${INTERMEDIATE}.p12 /opt/tak/certs/files/${SERVER_NAME}-"$1"-atak/certs
   create_pref_and_manifest_files $1
-  zip_server_package "${SERVER_NAME}-connect-${1}"
+  zip_server_package "${SERVER_NAME}-${1}-atak"
+  zip_server_itak_package ${1}
 }
 
 function create_pref_and_manifest_files {
@@ -41,9 +41,9 @@ function create_pref_and_manifest_files {
   config_file="/opt/configurator/template-config.pref"
   manifest_file="/opt/configurator/template-manifest.xml"
   template_str=$(cat "${config_file}")
-  eval "echo \"${template_str}\"" > /opt/tak/certs/files/${SERVER_NAME}-connect-"$1"/certs/config.pref
+  eval "echo \"${template_str}\"" > /opt/tak/certs/files/${SERVER_NAME}-"$1"-atak/certs/config.pref
   template_str=$(cat "${manifest_file}")
-  eval "echo \"${template_str}\"" > /opt/tak/certs/files/${SERVER_NAME}-connect-"$1"/MANIFEST/manifest.xml
+  eval "echo \"${template_str}\"" > /opt/tak/certs/files/${SERVER_NAME}-"$1"-atak/MANIFEST/manifest.xml
 }
 
 function zip_server_package(){
@@ -52,6 +52,11 @@ function zip_server_package(){
   mv ${1}.zip /opt/tak/certs/shared
 }
 
+function zip_server_itak_package(){
+  cd /opt/tak/certs/files/"${SERVER_NAME}-${1}-atak"/certs
+  jar -cvMf ${SERVER_NAME}-${1}-itak.zip *
+  mv ${SERVER_NAME}-${1}-itak.zip /opt/tak/certs/shared
+}
 # execution begins here
 
 INTERMEDIATE="${SERVER_NAME}CA1"
