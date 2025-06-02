@@ -7,7 +7,7 @@
         <connector port="8446" clientAuth="false" _name="Cert_Enrollment" keystore="JKS" keystoreFile="certs/shared/civtakdev.opeongo.net.jks" keystorePass="discgolf"/>
         <announce/>
     </network>
-    <auth>
+    <auth x509useGroupCache="true">
         <File location="UserAuthenticationFile.xml"/>
     </auth>
     <submission ignoreStaleMessages="false" validateXml="false"/>

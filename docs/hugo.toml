@@ -1,0 +1,17 @@
+# sectionPagesMenu = "main"
+
+baseURL = 'https://civtakdoc.opeongo.net/'
+languageCode = 'en-us'
+title = 'TAK Server Deployment and Support'
+theme = 'ananke'
+
+[params]
+  subtitle = 'adventures with TAK Server'
+  [params.contact]
+    email = 'info@austinvoicedata.com'
+
+#[menu]
+#[[menu.main]]
+#  name = 'Visit AVD'
+#  url = 'https://austinvoicedata.com'
+#  weight = 99
