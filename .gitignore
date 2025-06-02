@@ -12,3 +12,9 @@ takserver_orig
 takserver-docker-*.zip
 Configurator_Linux*
 tak_server*.zip
+*.lock
+*/public/*
+**/_gen/*
+*.deb
+*.apk
+
